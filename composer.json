@@ -1,0 +1,13 @@
+{
+    "name": "johankladder/bootstrap-table",
+    "authors": [
+        {
+            "name": "Johan Kladder",
+            "email": "j.kladder@st.hanze.nl"
+        }
+    ],
+    "require": {
+      "spatie/laravel-html": "~2.4.1"
+
+    }
+}
