@@ -91,12 +91,20 @@ class BootstrapTable
     {
         $html = '';
         foreach (self::$HEADERS as $headerKey => $label) {
+            //var_dump($label); die;
             $key = $headerKey;
             $data = null;
-            if (is_array($label)) {
+            if (is_array($label) && array_has($label, 'value')) {
                 $data = call_user_func($label['value'], $entityData);
             } else {
-                $data = $entityData[$key];
+                if(is_array($label)) {
+                    if(array_has($label, 'addon')){
+                        $data = AddonParser::parse($label['addon'], $entityData[$key]);
+                    }
+                }  else {
+                    $data = $entityData[$key];
+                }
+
             }
             $html .= '<td>' . $data . '</td>';
         }
