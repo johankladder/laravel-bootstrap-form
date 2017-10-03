@@ -12,7 +12,7 @@ namespace JohanKladder\BootstrapTable;
 class BootstrapTable
 {
 
-    const MAIN_CLASS = 'boostrap-table';
+    const MAIN_CLASS = 'table-responsive';
     const TABLE_CLASS = 'table';
 
     static $HEADERS = [];
@@ -57,7 +57,7 @@ class BootstrapTable
         if (is_array($header)) {
             $header = $header['label'];
         }
-        return '<th>' . $header . '</th>';
+        return '<th>' . __("messages.{$header}") . '</th>';
     }
 
     private static function generateTableBody(array $data)
