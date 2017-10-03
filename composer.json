@@ -9,5 +9,10 @@
     "require": {
       "spatie/laravel-html": "~2.4.1"
 
+    },
+    "autoload": {
+        "psr-4": {
+            "JohanKladder\\BootstrapTable\\": "src/"
+        }
     }
 }
