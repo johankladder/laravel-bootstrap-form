@@ -57,7 +57,7 @@ class BootstrapTable
         if (is_array($header)) {
             $header = $header['label'];
         }
-        return '<th>' . __("messages.{$header}") . '</th>';
+        return '<th>' . $header . '</th>';
     }
 
     private static function generateTableBody(array $data)
@@ -90,11 +90,11 @@ class BootstrapTable
     private static function generateTableBodyData($entityData)
     {
         $html = '';
-        foreach (self::$HEADERS as $headerKey) {
+        foreach (self::$HEADERS as $headerKey => $label) {
             $key = $headerKey;
             $data = null;
-            if (is_array($headerKey)) {
-                $data = call_user_func($headerKey['value'], $entityData);
+            if (is_array($label)) {
+                $data = call_user_func($label['value'], $entityData);
             } else {
                 $data = $entityData[$key];
             }
